@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+body{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   margin: 0; 
+   overflow: hidden;
+}
+.toggle-container{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 200px;
+}
+.toggle{
+    visibility: hidden;
+}
+.label{
+    width: 80px;
+    height: 40px;
+    background-color: lightgray;
+    border-radius: 70px;
+    cursor: pointer;
+    display: inline-block;
+    margin:0 15px 0;
+    position: relative;
+}
+.toggle:checked + .label{
+    background-color: rgb(93, 35, 242);
+}
+.ball{
+    background: white;
+    height: 33px;
+    width: 33px;
+    border-radius: 50%;
+    position: absolute;
+    top: 3.5px;
+    left: 3px;
+    align-items: center;
+    justify-content: center;
+    animation: slideOff  0.3s linear forwards;
+}
+.toggle:checked + .label .ball{
+    animation: slideOn 0.3 linear forwards;
+}
+@keyframes slideOn{
+    0%{
+        transform: translateX(0) scale(1);
+    }
+    50% {transform: translateX(66.5px) scale(1.2);
+    }
+    100% {transform: translateX(40px) scale(1);
+    }
+}
+@keyframes slideOff{
+    0%{
+        transform: translateX(40px) scale(1);
+    }
+    50% {transform: translateX(20px) scale(1.2);
+    }
+    100% {transform: translateX(0) scale(1);
+    }
+}
